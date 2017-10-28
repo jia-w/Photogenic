@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Android</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="image_view_content_description">ImageView Content Description</string>
+
+    <string name="drawer_main_title_home">바탕화면</string>
+</resources>
