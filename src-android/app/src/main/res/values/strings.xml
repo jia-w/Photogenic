@@ -13,4 +13,11 @@
     <string name="home_menu_favorite_tourist">인기관광지</string>
     <string name="home_menu_taking_a_picture">사진촬영 및 편집</string>
     <string name="home_menu_tourist_information">관광지 정보</string>
+
+    <!-- Log In Fragment -->
+    <string name="email">email</string>
+    <string name="password">Password (optional)</string>
+    <string name="sign_in">로그인</string>
+    <string name="sign_up">회원가입</string>
+    <string name="remember_me">Remember me</string>
 </resources>

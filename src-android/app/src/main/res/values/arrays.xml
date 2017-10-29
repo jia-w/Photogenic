@@ -2,7 +2,7 @@
 <resources>
     <string-array name="drawer_main_titles">
         <item>@string/drawer_main_title_home</item>
-        <item>인생샷 촬영</item>
+        <item>@string/drawer_main_title_login</item>
     </string-array>
 
     <string-array name="home_menu_titles">

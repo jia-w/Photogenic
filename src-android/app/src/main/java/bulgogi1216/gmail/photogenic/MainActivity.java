@@ -17,6 +17,7 @@ import android.view.View;
 
 import bulgogi1216.gmail.photogenic.databinding.ActivityMainBinding;
 import bulgogi1216.gmail.photogenic.fragment.HomeFragment;
+import bulgogi1216.gmail.photogenic.fragment.LoginFragment;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
@@ -64,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(_item.getTitle().equals(drawerTitles[0])) {
             fragment = HomeFragment.newInstance();
+        } else if(_item.getTitle().equals(drawerTitles[1])) {
+            fragment = LoginFragment.newInstance();
         } else {
             Log.e(TAG, "fragment variable is null");
             fragment = null;
@@ -102,15 +105,6 @@ public class MainActivity extends AppCompatActivity {
 
         mHandler = new Handler();
         commitFragment(HomeFragment.newInstance());
-
-        if(savedInstanceState.isEmpty()) {
-            mIsLoggedin = false;
-
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        } else {
-
-        }
     }
 
     @Override
