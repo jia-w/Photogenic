@@ -35,4 +35,5 @@ dependencies {
     // third party dependencies -------------------------------------------------------------------
     implementation 'com.mikhaellopez:circularimageview:3.0.2' // circle image view
     implementation 'com.balysv:material-ripple:1.0.2' // ripple effect
+    implementation 'com.wang.avi:library:2.1.3'
 }

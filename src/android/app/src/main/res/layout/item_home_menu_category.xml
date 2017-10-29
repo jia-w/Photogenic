@@ -3,7 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <variable name="obj" type="item"/>
+    <data>
+        <variable
+            name="home_menu_category"
+            type="com.example.bulgo.android.model.HomeMenuCategory"/>
+    </data>
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,7 +22,8 @@
             android:layout_height="180dp"
             android:foreground="@color/overlay_dark_30"
             android:scaleType="centerCrop"
-            android:src="@drawable/default_image"
+            android:src="@{home_menu_category.imageBg}"
+            android:contentDescription="@string/image_view_content_description"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"/>
@@ -32,24 +37,16 @@
             app:layout_constraintRight_toRightOf="parent">
 
             <LinearLayout
-                android:id="@+id/lyt_parent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:id="@+id/lyt_parent"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="@dimen/spacing_large">
 
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@android:color/white"
-                    android:textStyle="bold" />
-
                 <Button
-                    android:id="@+id/brief"
+                    android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/spacing_xlarge"
                     android:layout_marginTop="@dimen/spacing_small"
@@ -57,7 +54,8 @@
                     android:enabled="false"
                     android:paddingLeft="@dimen/spacing_xlarge"
                     android:paddingRight="@dimen/spacing_xlarge"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:text="@{home_menu_category.title}"/>
             </LinearLayout>
         </com.balysv.materialripple.MaterialRippleLayout>
 

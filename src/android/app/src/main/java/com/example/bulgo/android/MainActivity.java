@@ -10,6 +10,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -17,6 +18,8 @@ import com.example.bulgo.android.databinding.ActivityMainBinding;
 import com.example.bulgo.android.fragment.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
+    public static final String TAG = "MainActivity";
+
     private ActivityMainBinding mBinding;
     private ActionBar mActionBar;
     private Handler mHandler;
@@ -60,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         if(_item.getTitle().equals(drawerTitles[0])) {
             fragment = HomeFragment.newInstance();
         } else {
+            Log.e(TAG, "fragment variable is null");
             fragment = null;
         }
 
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         initNavigationMenu();
 
         mHandler = new Handler();
+        commitFragment(HomeFragment.newInstance());
     }
 
     @Override

@@ -6,4 +6,10 @@
     <string name="image_view_content_description">ImageView Content Description</string>
 
     <string name="drawer_main_title_home">바탕화면</string>
+
+    <!-- Home Menu Titles -->
+    <string name="home_menu_selfie">인생샷 보기</string>
+    <string name="home_menu_favorite_tourist">인기관광지</string>
+    <string name="home_menu_taking_a_picture">사진촬영 및 편집</string>
+    <string name="home_menu_tourist_information">관광지 정보</string>
 </resources>

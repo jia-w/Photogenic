@@ -5,10 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.example.bulgo.android.BR;
 import com.example.bulgo.android.databinding.ItemHomeMenuCategoryBinding;
 import com.example.bulgo.android.model.HomeMenuCategory;
+import com.example.bulgo.android.model.HomeMenuCategoryList;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,7 +18,7 @@ import java.util.List;
 
 public class AdapterListHomeMenu extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
-    private List<HomeMenuCategory> items = new ArrayList<>();
+    private List<HomeMenuCategory> items;
 
     public class OriginalViewHolder extends RecyclerView.ViewHolder {
         private final ItemHomeMenuCategoryBinding mBinding;
@@ -27,32 +28,34 @@ public class AdapterListHomeMenu extends RecyclerView.Adapter<RecyclerView.ViewH
             mBinding = _binding;
         }
 
-        public void bind(Object _obj) {
-            mBinding.setVariable(BR.obj, _obj);
-
-            mBinding.title.setText(_category.mTitle);
-            mBinding.brief.setText(_category.mBrief);
-            mBinding.imageBg.setImageDrawable(_category.mImageDrw);
+        public void bind(HomeMenuCategory _item) {
+            mBinding.setVariable(BR.home_menu_category, _item);
+//            mBinding.title.setText(_item.getTitle());
+//            mBinding.imageBg.setImageResource(_item.getImageBg());
             mBinding.executePendingBindings();
         }
     }
 
-    public AdapterListHomeMenu(Context _context, List<HomeMenuCategory> _items) {
+    public AdapterListHomeMenu(Context _context) {
         mContext = _context;
-        items = _items;
+        items = HomeMenuCategoryList.get().getHomeMenuCategories();
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        ItemHomeMenuCategoryBinding binding = ItemHomeMenuCategoryBinding.inflate(layoutInflater, parent, false);
+        ItemHomeMenuCategoryBinding binding = ItemHomeMenuCategoryBinding.inflate(layoutInflater, parent, true);
 
         return new OriginalViewHolder(binding);
     }
 
-    public void onBindViewHolder(OriginalViewHolder holder, int position) {
-        Object obj = getO
-        holder.bind(category);
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        if(holder instanceof OriginalViewHolder) {
+            OriginalViewHolder view = (OriginalViewHolder) holder;
+            HomeMenuCategory item = items.get(position);
+            view.bind(item);
+        }
     }
 
     @Override
