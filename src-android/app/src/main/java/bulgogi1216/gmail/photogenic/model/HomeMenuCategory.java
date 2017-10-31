@@ -5,14 +5,14 @@ import android.graphics.drawable.Drawable;
 import java.util.UUID;
 
 public class HomeMenuCategory {
-    private UUID mId;
+    private UUID mUUID;
     private String mTitle;
     private Drawable mImageBg;
 
     public HomeMenuCategory(Drawable _imageBg, String _title) {
         mImageBg = _imageBg;
         mTitle = _title;
-        mId = UUID.randomUUID();
+        mUUID = UUID.randomUUID();
     }
 
     public String getTitle() {
@@ -32,7 +32,7 @@ public class HomeMenuCategory {
         mImageBg = _imageBg;
     }
 
-    public UUID getId() {
-        return mId;
+    public UUID getUUID() {
+        return mUUID;
     }
 }

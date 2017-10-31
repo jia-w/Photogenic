@@ -30,7 +30,7 @@ public class HomeMenuCategoryList {
 
     public HomeMenuCategory getHomeMenuCategory(UUID _uuid) {
         for (HomeMenuCategory homeMenuCategory : mHomeMenuCategories) {
-            if(homeMenuCategory.getId().equals(_uuid)) {
+            if(homeMenuCategory.getUUID().equals(_uuid)) {
                 return homeMenuCategory;
             }
         }

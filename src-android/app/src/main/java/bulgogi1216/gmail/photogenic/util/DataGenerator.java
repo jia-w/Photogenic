@@ -1,4 +1,4 @@
-package bulgogi1216.gmail.photogenic.utils;
+package bulgogi1216.gmail.photogenic.util;
 
 /**
  * Created by bulgo on 2017-10-27.

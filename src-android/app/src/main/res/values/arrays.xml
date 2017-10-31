@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="drawer_main_titles">
-        <item>@string/drawer_main_title_home</item>
-        <item>@string/drawer_main_title_login</item>
+    <string-array name="drawer_titles_in_main">
+        <item>@string/drawer_title_home_in_main</item>
+        <item>@string/drawer_title_log_out_in_main</item>
     </string-array>
 
-    <string-array name="home_menu_titles">
-        <item>@string/home_menu_selfie</item>
-        <item>@string/home_menu_favorite_tourist</item>
-        <item>@string/home_menu_taking_a_picture</item>
-        <item>@string/home_menu_tourist_information</item>
+    <string-array name="menu_titles_in_main">
+        <item>@string/menu_selfie_in_main</item>
+        <item>@string/menu_favorite_tourist_in_main</item>
+        <item>@string/menu_taking_a_picture_in_main</item>
+        <item>@string/menu_tourist_information_in_main</item>
     </string-array>
 </resources>

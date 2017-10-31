@@ -12,7 +12,7 @@ import java.util.List;
 import bulgogi1216.gmail.photogenic.databinding.ActivityLoadingBinding;
 import bulgogi1216.gmail.photogenic.model.HomeMenuCategory;
 import bulgogi1216.gmail.photogenic.model.HomeMenuCategoryList;
-import bulgogi1216.gmail.photogenic.utils.KakaoKeyGenerator;
+import bulgogi1216.gmail.photogenic.util.KakaoKeyGenerator;
 
 public class LoadingActivity extends AppCompatActivity {
     public static final String TAG = "LoadingActivity";
@@ -21,7 +21,7 @@ public class LoadingActivity extends AppCompatActivity {
     private Context mContext;
 
     private void initHomeMenu() {
-        String[] homeMenuTitles = getResources().getStringArray(R.array.home_menu_titles);
+        String[] homeMenuTitles = getResources().getStringArray(R.array.menu_titles_in_main);
         List<HomeMenuCategory> items = HomeMenuCategoryList.get().getHomeMenuCategories();
         items.add(new HomeMenuCategory(mContext.getDrawable(R.drawable.home_menu_selfie), homeMenuTitles[0]));
         items.add(new HomeMenuCategory(mContext.getDrawable(R.drawable.home_menu_favorite_tourist), homeMenuTitles[1]));

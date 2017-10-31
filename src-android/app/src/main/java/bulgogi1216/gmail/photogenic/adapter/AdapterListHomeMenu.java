@@ -23,7 +23,7 @@ public class AdapterListHomeMenu extends RecyclerView.Adapter<RecyclerView.ViewH
     public class OriginalViewHolder extends RecyclerView.ViewHolder {
         private final ItemHomeMenuCategoryBinding mBinding;
 
-        public OriginalViewHolder(ItemHomeMenuCategoryBinding _binding) {
+        private OriginalViewHolder(ItemHomeMenuCategoryBinding _binding) {
             super(_binding.getRoot());
             mBinding = _binding;
         }

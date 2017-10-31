@@ -1,7 +1,6 @@
-package bulgogi1216.gmail.photogenic.utils;
+package bulgogi1216.gmail.photogenic.util;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
