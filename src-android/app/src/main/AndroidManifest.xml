@@ -17,8 +17,13 @@
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
 
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".LoadingActivity">
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".LoadingActivity"
+            android:noHistory="true">
+
+        </activity>
+        <activity android:name=".SelfieActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

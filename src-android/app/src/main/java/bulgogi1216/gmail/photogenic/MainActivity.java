@@ -1,6 +1,5 @@
 package bulgogi1216.gmail.photogenic;
 
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private void initToolbar() {
         setSupportActionBar(mBinding.toolbarShell.toolbar);
         mActionBar = getSupportActionBar();
+        Log.e(TAG, "ActionBar is null");
+        assert mActionBar != null;
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setHomeButtonEnabled(true);
         mActionBar.setTitle(getResources().getString(R.string.app_name));
