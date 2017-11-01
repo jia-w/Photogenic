@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
 import java.util.List;
 
 import bulgogi1216.gmail.photogenic.databinding.ActivityLoadingBinding;
@@ -30,6 +33,14 @@ public class LoadingActivity extends AppCompatActivity {
         Log.v(TAG, "Home Menu Category has been initialized");
     }
 
+    private void initImageUtil() {
+        ImageLoader imageLoader = ImageLoader.getInstance();
+
+        if (!imageLoader.isInited()) {
+            imageLoader.init(ImageLoaderConfiguration.createDefault(this));
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +51,7 @@ public class LoadingActivity extends AppCompatActivity {
 
         KakaoKeyGenerator.getKeyHash(mContext);
         initHomeMenu();
+        initImageUtil();
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

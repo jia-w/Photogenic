@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bulgogi1216.gmail.photogenic.R;
+import bulgogi1216.gmail.photogenic.adapter.AdapterMostFavoriteSelfieCard;
 import bulgogi1216.gmail.photogenic.adapter.AdapterMostFavoriteSelfieSlider;
 import bulgogi1216.gmail.photogenic.databinding.FragmentBestSelfieBinding;
 import bulgogi1216.gmail.photogenic.model.MostFavoriteSelfie;
+import bulgogi1216.gmail.photogenic.util.Tools;
 
 /**
  * Created by bulgo on 2017-10-31.
@@ -32,6 +33,7 @@ public class BestSelfieFragment extends Fragment {
     private Runnable mRunnable = null;
     private Handler mHandler = new Handler();
     private AdapterMostFavoriteSelfieSlider mAdapterMostFavoriteSelfieSlider;
+    private AdapterMostFavoriteSelfieCard mAdapterMostFavoriteSelfieCard;
 
     public static BestSelfieFragment newInstance() {
         return new BestSelfieFragment();
@@ -102,11 +104,25 @@ public class BestSelfieFragment extends Fragment {
         startAutoSlider(mAdapterMostFavoriteSelfieSlider.getCount());
     }
 
-    private void initRecyclerView() {
+    private void initNewReleaseComponent() {
+        Tools.displayImageOriginal(getActivity(), mBinding.lhsSelfieImageInNewSelfie, R.drawable.image_8);
+        Tools.displayImageOriginal(getActivity(), mBinding.rhsSelfieImageInNewSelfie, R.drawable.image_9);
+        Tools.displayImageOriginal(getActivity(), mBinding.lhsSelfieImageInRecommended, R.drawable.image_15);
+        Tools.displayImageOriginal(getActivity(), mBinding.mhsSelfieImageInRecommended, R.drawable.image_14);
+        Tools.displayImageOriginal(getActivity(), mBinding.rhsSelfieImageInRecommended, R.drawable.image_12);
+        Tools.displayImageOriginal(getActivity(), mBinding.lhsSelfieImageInTopRated, R.drawable.image_2);
+        Tools.displayImageOriginal(getActivity(), mBinding.rhsSelfieImageInTopRated, R.drawable.image_5);
+    }
+
+/*    private void initRecyclerView() {
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         mBinding.recyclerView.setHasFixedSize(true);
-/*
-        List<MostFavoriteSelfieCard> items = new ArrayList<>();
+
+        //set data and list adapter
+        mAdapterMostFavoriteSelfieCard = new AdapterMostFavoriteSelfieCard(mContext);
+        mBinding.recyclerView.setAdapter(mAdapterMostFavoriteSelfieCard);
+*//*
+        List<SelfieCard> items = new ArrayList<>();
         items.addAll(DataGenerator.getPeopleData(this));
         items.addAll(DataGenerator.getPeopleData(this));
 
@@ -119,18 +135,14 @@ public class BestSelfieFragment extends Fragment {
             sect_idx++;
         }
 
-        //set data and list adapter
-        mAdapter = new AdapterListSectioned(this, items);
-        recyclerView.setAdapter(mAdapter);
-
         // on item list clicked
         mAdapter.setOnItemClickListener(new AdapterListSectioned.OnItemClickListener() {
             @Override
             public void onItemClick(View view, People obj, int position) {
                 Snackbar.make(parent_view, "Item " + obj.name + " clicked", Snackbar.LENGTH_SHORT).show();
             }
-        });*/
-    }
+        });*//*
+    }*/
 
     private void addBottomDots(int _size, int _current) {
         ImageView[] dots = new ImageView[_size];
@@ -178,7 +190,7 @@ public class BestSelfieFragment extends Fragment {
         mContext = mBinding.getRoot().getContext();
 
         initSliderImage();
-        initRecyclerView();
+        initNewReleaseComponent();
 
         return mBinding.getRoot();
     }

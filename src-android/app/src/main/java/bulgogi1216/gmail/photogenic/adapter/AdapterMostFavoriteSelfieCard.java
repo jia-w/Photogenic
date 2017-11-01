@@ -9,8 +9,8 @@ import java.util.List;
 
 import bulgogi1216.gmail.photogenic.databinding.ItemMostFavoriteSelfieCardBinding;
 import bulgogi1216.gmail.photogenic.databinding.ItemSectionInMostFavoriteSelfieCardBinding;
-import bulgogi1216.gmail.photogenic.model.MostFavoriteSelfieCard;
-import bulgogi1216.gmail.photogenic.model.MostFavoriteSelfieCardList;
+import bulgogi1216.gmail.photogenic.model.SelfieCard;
+import bulgogi1216.gmail.photogenic.model.SelfieCardList;
 
 public class AdapterMostFavoriteSelfieCard extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static final String TAG = "AdpMostFavoriteSelfieCard";
@@ -18,7 +18,7 @@ public class AdapterMostFavoriteSelfieCard extends RecyclerView.Adapter<Recycler
     private final int VIEW_ITEM = 1;
     private final int VIEW_SECTION = 0;
 
-    private List<MostFavoriteSelfieCard> mItems;
+    private List<SelfieCard> mItems;
     private Context mContext;
 /*    private OnItemClickListener mOnItemClickListener;
 
@@ -28,7 +28,7 @@ public class AdapterMostFavoriteSelfieCard extends RecyclerView.Adapter<Recycler
 
     public AdapterMostFavoriteSelfieCard(Context _context) {
         mContext = _context;
-        mItems = MostFavoriteSelfieCardList.get().getMostFavoriteSelfieCards();
+        mItems = SelfieCardList.get().getSelfieCards();
     }
 
     public class OriginalViewHolder extends RecyclerView.ViewHolder {
@@ -39,18 +39,11 @@ public class AdapterMostFavoriteSelfieCard extends RecyclerView.Adapter<Recycler
             mBinding = _binding;
         }
 
-        public void bind(MostFavoriteSelfieCard _item) {
-//            mBinding.listItemGoogleCardsSocialProfileImage.
-//            view.name.setText(p.name);
-//            Tools.displayImageRound(ctx, view.image, p.image);
-//            view.lyt_parent.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    if (mOnItemClickListener != null) {
-//                        mOnItemClickListener.onItemClick(view, items.get(position), position);
-//                    }
-//                }
-//            });
+        public void bind(SelfieCard _item) {
+            mBinding.name.setText(_item.getName());
+            mBinding.profileImage.setImageResource(_item.getProfileImg());
+            mBinding.selfieImage.setImageResource(_item.getSelfieImg());
+            mBinding.text.setText(_item.getText());
 
             mBinding.executePendingBindings();
         }
@@ -64,7 +57,7 @@ public class AdapterMostFavoriteSelfieCard extends RecyclerView.Adapter<Recycler
             mBinding = _binding;
         }
 
-        public void bind(MostFavoriteSelfieCard _item) {
+        public void bind(SelfieCard _item) {
             mBinding.titleSection.setText("test section");
         }
     }
@@ -98,7 +91,7 @@ public class AdapterMostFavoriteSelfieCard extends RecyclerView.Adapter<Recycler
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        MostFavoriteSelfieCard item = mItems.get(position);
+        SelfieCard item = mItems.get(position);
 
         if(holder instanceof OriginalViewHolder) {
             OriginalViewHolder view = (OriginalViewHolder) holder;
@@ -119,7 +112,7 @@ public class AdapterMostFavoriteSelfieCard extends RecyclerView.Adapter<Recycler
         return this.mItems.get(position).isSection() ? VIEW_SECTION : VIEW_ITEM;
     }
 
-    public void insertItem(int _i, MostFavoriteSelfieCard _item){
+    public void insertItem(int _i, SelfieCard _item){
         mItems.add(_i, _item);
         notifyItemInserted(_i);
     }

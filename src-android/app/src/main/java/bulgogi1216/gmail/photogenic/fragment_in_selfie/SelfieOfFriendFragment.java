@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import bulgogi1216.gmail.photogenic.R;
+import bulgogi1216.gmail.photogenic.adapter.AdapterSelfieOfFriendCard;
 import bulgogi1216.gmail.photogenic.databinding.FragmentSelfieOfFriendBinding;
 
 /**
@@ -17,11 +18,14 @@ import bulgogi1216.gmail.photogenic.databinding.FragmentSelfieOfFriendBinding;
  */
 
 public class SelfieOfFriendFragment extends Fragment {
+    public static final String TAG = "SelfieOfFriendFragment";
+
     private FragmentSelfieOfFriendBinding mBinding;
     private Context mContext;
 
     private void initComponent() {
-//        mBinding..setLayoutManager(new LinearLayoutManager(mContext));
+        mBinding.paralaxListView.setShowDividers(0);
+        mBinding.paralaxListView.setAdapter(new AdapterSelfieOfFriendCard(getContext()));
     }
 
     public static SelfieOfFriendFragment newInstance() {

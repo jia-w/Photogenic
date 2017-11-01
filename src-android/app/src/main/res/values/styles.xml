@@ -18,4 +18,8 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextAppearance.Medium.Bold" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

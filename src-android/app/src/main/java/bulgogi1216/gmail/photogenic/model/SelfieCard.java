@@ -1,33 +1,27 @@
 package bulgogi1216.gmail.photogenic.model;
 
-import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
 
+import java.util.Date;
 import java.util.UUID;
 
-public class MostFavoriteSelfieCard {
+public class SelfieCard implements Comparable<SelfieCard> {
 	private UUID mUUID;
-	private Drawable mProfileImgDrw;
+	private int mProfileImg;
 	private String mProfileImgUrl;
 	private String mName;
 	private String[] addr;
-	private Drawable mSelfieImgDrw;
+	private int mSelfieImg;
 	private String mSelfieImgUrl;
 	private String mText;
+	private Date mDate;
 	private boolean section = false;
 
-	public MostFavoriteSelfieCard() {
+	public SelfieCard() {
 	}
 
 	public UUID getUUID() {
 		return mUUID;
-	}
-
-	public Drawable getProfileImgDrw() {
-		return mProfileImgDrw;
-	}
-
-	public void setProfileImgDrw(Drawable _profileImgDrw) {
-		mProfileImgDrw = _profileImgDrw;
 	}
 
 	public String getProfileImgUrl() {
@@ -54,14 +48,6 @@ public class MostFavoriteSelfieCard {
 		addr = _addr;
 	}
 
-	public Drawable getSelfieImgDrw() {
-		return mSelfieImgDrw;
-	}
-
-	public void setSelfieImgDrw(Drawable _selfieImgDrw) {
-		mSelfieImgDrw = _selfieImgDrw;
-	}
-
 	public String getSelfieImgUrl() {
 		return mSelfieImgUrl;
 	}
@@ -78,7 +64,36 @@ public class MostFavoriteSelfieCard {
 		mText = _text;
 	}
 
+	public int getProfileImg() {
+		return mProfileImg;
+	}
+
+	public void setProfileImg(int _profileImg) {
+		mProfileImg = _profileImg;
+	}
+
+	public int getSelfieImg() {
+		return mSelfieImg;
+	}
+
+	public void setSelfieImg(int _selfieImg) {
+		mSelfieImg = _selfieImg;
+	}
+
 	public boolean isSection() {
 		return section;
+	}
+
+	public Date getDate() {
+		return mDate;
+	}
+
+	public void setDate(Date _date) {
+		mDate = _date;
+	}
+
+	@Override
+	public int compareTo(@NonNull SelfieCard _selfieCard) {
+		return mDate.getTime() <= _selfieCard.getDate().getTime() ? -1 : 1;
 	}
 }

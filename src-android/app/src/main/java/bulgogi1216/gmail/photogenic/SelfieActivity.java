@@ -19,6 +19,8 @@ import java.util.List;
 import bulgogi1216.gmail.photogenic.databinding.ActivitySelfieBinding;
 import bulgogi1216.gmail.photogenic.fragment_in_selfie.BestSelfieFragment;
 import bulgogi1216.gmail.photogenic.fragment_in_selfie.SelfieOfFriendFragment;
+import bulgogi1216.gmail.photogenic.model.SelfieCard;
+import bulgogi1216.gmail.photogenic.model.SelfieCardList;
 import bulgogi1216.gmail.photogenic.util.Tools;
 
 public class SelfieActivity extends AppCompatActivity {
@@ -78,6 +80,23 @@ public class SelfieActivity extends AppCompatActivity {
         mBinding.viewPager.setAdapter(mPagerAdapter);
     }
 
+    private void initDummy() {
+        List<SelfieCard> items = SelfieCardList.get().getSelfieOfFriendCards();
+        SelfieCard item = new SelfieCard();
+        item.setProfileImgUrl("http://pengaja.com/uiapptemplate/newphotos/profileimages/2.jpg");
+        item.setSelfieImgUrl("http://cfile23.uf.tistory.com/image/25356834520B205206AABB");
+        item.setName("김사또");
+
+        items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
+        items.add(item);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +104,7 @@ public class SelfieActivity extends AppCompatActivity {
 
         initToolbar();
         initComponent();
+        initDummy();
     }
 
     @Override

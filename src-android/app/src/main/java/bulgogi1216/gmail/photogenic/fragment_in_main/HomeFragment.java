@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment {
         mBinding.recyclerView.setNestedScrollingEnabled(false);
 
         //set data and list adapter
-        mBinding.recyclerView.setAdapter(new AdapterListHomeMenu(mContext));
+        mBinding.recyclerView.setAdapter(new AdapterListHomeMenu());
 //
 //        // on item list clicked
 //        mAdapter.setOnItemClickListener(new AdapterListShopCategoryImg.OnItemClickListener() {

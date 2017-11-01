@@ -1,6 +1,5 @@
 package bulgogi1216.gmail.photogenic.adapter;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -17,7 +16,6 @@ import bulgogi1216.gmail.photogenic.model.HomeMenuCategoryList;
  */
 
 public class AdapterListHomeMenu extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private Context mContext;
     private List<HomeMenuCategory> mItems;
 
     public class OriginalViewHolder extends RecyclerView.ViewHolder {
@@ -34,8 +32,7 @@ public class AdapterListHomeMenu extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-    public AdapterListHomeMenu(Context _context) {
-        mContext = _context;
+    public AdapterListHomeMenu() {
         mItems = HomeMenuCategoryList.get().getHomeMenuCategories();
     }
 
