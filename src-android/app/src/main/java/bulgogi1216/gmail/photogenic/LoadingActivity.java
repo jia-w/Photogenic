@@ -53,7 +53,7 @@ public class LoadingActivity extends AppCompatActivity {
         initHomeMenu();
         initImageUtil();
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, SelfieActivity.class);
         startActivity(intent);
     }
 }
