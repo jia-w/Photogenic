@@ -18,7 +18,7 @@ import bulgogi1216.gmail.photogenic.model.HomeMenuCategoryList;
 
 public class AdapterListHomeMenu extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private Context mContext;
-    private List<HomeMenuCategory> items;
+    private List<HomeMenuCategory> mItems;
 
     public class OriginalViewHolder extends RecyclerView.ViewHolder {
         private final ItemHomeMenuCategoryBinding mBinding;
@@ -30,15 +30,13 @@ public class AdapterListHomeMenu extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public void bind(HomeMenuCategory _item) {
             mBinding.setVariable(BR.home_menu_category, _item);
-//            mBinding.title.setText(_item.getTitle());
-//            mBinding.imageBg.setImageResource(_item.getImageBg());
             mBinding.executePendingBindings();
         }
     }
 
     public AdapterListHomeMenu(Context _context) {
         mContext = _context;
-        items = HomeMenuCategoryList.get().getHomeMenuCategories();
+        mItems = HomeMenuCategoryList.get().getHomeMenuCategories();
     }
 
     @Override
@@ -53,13 +51,13 @@ public class AdapterListHomeMenu extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if(holder instanceof OriginalViewHolder) {
             OriginalViewHolder view = (OriginalViewHolder) holder;
-            HomeMenuCategory item = items.get(position);
+            HomeMenuCategory item = mItems.get(position);
             view.bind(item);
         }
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return mItems.size();
     }
 }

@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,7 +61,7 @@ public class BestSelfieFragment extends Fragment {
             "Side Park",
     };
 
-    private void initComponent() {
+    private void initSliderImage() {
         mAdapterMostFavoriteSelfieSlider = new AdapterMostFavoriteSelfieSlider(getActivity());
 
         final List<MostFavoriteSelfie> items = new ArrayList<>();
@@ -99,6 +100,36 @@ public class BestSelfieFragment extends Fragment {
         });
 
         startAutoSlider(mAdapterMostFavoriteSelfieSlider.getCount());
+    }
+
+    private void initRecyclerView() {
+        mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        mBinding.recyclerView.setHasFixedSize(true);
+/*
+        List<MostFavoriteSelfieCard> items = new ArrayList<>();
+        items.addAll(DataGenerator.getPeopleData(this));
+        items.addAll(DataGenerator.getPeopleData(this));
+
+        int sect_count = 0;
+        int sect_idx = 0;
+        List<String> months = DataGenerator.getStringsMonth(this);
+        for (int i = 0; i < items.size() / 6; i++) {
+            items.add(sect_count, new People(months.get(sect_idx), true));
+            sect_count = sect_count + 5;
+            sect_idx++;
+        }
+
+        //set data and list adapter
+        mAdapter = new AdapterListSectioned(this, items);
+        recyclerView.setAdapter(mAdapter);
+
+        // on item list clicked
+        mAdapter.setOnItemClickListener(new AdapterListSectioned.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, People obj, int position) {
+                Snackbar.make(parent_view, "Item " + obj.name + " clicked", Snackbar.LENGTH_SHORT).show();
+            }
+        });*/
     }
 
     private void addBottomDots(int _size, int _current) {
@@ -146,7 +177,8 @@ public class BestSelfieFragment extends Fragment {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_best_selfie, container, false);
         mContext = mBinding.getRoot().getContext();
 
-        initComponent();
+        initSliderImage();
+        initRecyclerView();
 
         return mBinding.getRoot();
     }

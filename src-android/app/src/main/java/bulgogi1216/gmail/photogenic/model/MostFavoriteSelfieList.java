@@ -11,10 +11,10 @@ import java.util.UUID;
 public class MostFavoriteSelfieList {
     private static MostFavoriteSelfieList sMostFavoriteSelfieList;
 
-    private List<MostFavoriteSelfie> mMostFavoriteSelfieLists;
+    private List<MostFavoriteSelfie> mMostFavoriteSelfies;
 
     private MostFavoriteSelfieList() {
-        mMostFavoriteSelfieLists = new ArrayList<>();
+        mMostFavoriteSelfies = new ArrayList<>();
     }
 
     public static MostFavoriteSelfieList get() {
@@ -25,11 +25,11 @@ public class MostFavoriteSelfieList {
     }
 
     public List<MostFavoriteSelfie> getMostFavoriteSelfieLists() {
-        return mMostFavoriteSelfieLists;
+        return mMostFavoriteSelfies;
     }
 
     public MostFavoriteSelfie getMostFavoriteSelfie(UUID _uuid) {
-        for (MostFavoriteSelfie mostFavoriteSelfie : mMostFavoriteSelfieLists) {
+        for (MostFavoriteSelfie mostFavoriteSelfie : mMostFavoriteSelfies) {
             if(mostFavoriteSelfie.getUUID().equals(_uuid)) {
                 return mostFavoriteSelfie;
             }

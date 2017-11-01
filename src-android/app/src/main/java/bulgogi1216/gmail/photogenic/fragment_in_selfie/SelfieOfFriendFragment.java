@@ -1,5 +1,6 @@
 package bulgogi1216.gmail.photogenic.fragment_in_selfie;
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,9 +18,10 @@ import bulgogi1216.gmail.photogenic.databinding.FragmentSelfieOfFriendBinding;
 
 public class SelfieOfFriendFragment extends Fragment {
     private FragmentSelfieOfFriendBinding mBinding;
+    private Context mContext;
 
     private void initComponent() {
-
+//        mBinding..setLayoutManager(new LinearLayoutManager(mContext));
     }
 
     public static SelfieOfFriendFragment newInstance() {
@@ -35,6 +37,7 @@ public class SelfieOfFriendFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_selfie_of_friend, container, false);
+        mContext = mBinding.getRoot().getContext();
 
         initComponent();
 
