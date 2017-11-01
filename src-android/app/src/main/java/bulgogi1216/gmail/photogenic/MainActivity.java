@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import bulgogi1216.gmail.photogenic.databinding.ActivityMainBinding;
-import bulgogi1216.gmail.photogenic.fragment.HomeFragment;
+import bulgogi1216.gmail.photogenic.fragment_in_main.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";

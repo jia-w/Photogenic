@@ -1,4 +1,4 @@
-package bulgogi1216.gmail.photogenic.fragment;
+package bulgogi1216.gmail.photogenic.fragment_in_main;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;

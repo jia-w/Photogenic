@@ -18,20 +18,12 @@ import java.util.List;
 
 import bulgogi1216.gmail.photogenic.databinding.ActivitySelfieBinding;
 import bulgogi1216.gmail.photogenic.fragment_in_selfie.BestSelfieFragment;
+import bulgogi1216.gmail.photogenic.fragment_in_selfie.SelfieOfFriendFragment;
 import bulgogi1216.gmail.photogenic.util.Tools;
 
 public class SelfieActivity extends AppCompatActivity {
     private ActivitySelfieBinding mBinding;
     private SectionsPagerAdapter mPagerAdapter;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_selfie);
-
-        initToolbar();
-        initComponent();
-    }
 
     private void initToolbar() {
         mBinding.toolbar.setNavigationIcon(R.drawable.ic_undo);
@@ -60,7 +52,7 @@ public class SelfieActivity extends AppCompatActivity {
         mBinding.tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                tab.getIcon().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
+                tab.getIcon().setColorFilter(Color.WHITE,  PorterDuff.Mode.SRC_IN);
                 mBinding.viewPager.setCurrentItem(tab.getPosition());
             }
 
@@ -71,20 +63,29 @@ public class SelfieActivity extends AppCompatActivity {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
     }
 
     private void setupViewPager() {
+        String[] tabTitles = getResources().getStringArray(R.array.tab_titles_in_selfie);
+
         mPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        mPagerAdapter.addFragment(BestSelfieFragment.newInstance(), "Music");    // index 0
-        mPagerAdapter.addFragment(BestSelfieFragment.newInstance(), "Movies");   // index 1
-        mPagerAdapter.addFragment(BestSelfieFragment.newInstance(), "Books");    // index 2
-        mPagerAdapter.addFragment(BestSelfieFragment.newInstance(), "Games");    // index 3
+        mPagerAdapter.addFragment(BestSelfieFragment.newInstance(), tabTitles[0]);    // index 0
+        mPagerAdapter.addFragment(SelfieOfFriendFragment.newInstance(), tabTitles[1]);   // index 1
+        mPagerAdapter.addFragment(SelfieOfFriendFragment.newInstance(), "Books");    // index 2
+        mPagerAdapter.addFragment(SelfieOfFriendFragment.newInstance(), "Games");    // index 3
         mBinding.viewPager.setAdapter(mPagerAdapter);
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_selfie);
+
+        initToolbar();
+        initComponent();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

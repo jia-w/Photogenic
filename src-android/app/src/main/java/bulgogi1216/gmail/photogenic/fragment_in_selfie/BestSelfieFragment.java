@@ -67,7 +67,7 @@ public class BestSelfieFragment extends Fragment {
         for (int i = 0; i < array_image_place.length; i++) {
             MostFavoriteSelfie obj = new MostFavoriteSelfie();
             obj.setImage(array_image_place[i]);
-            obj.setImageDrw(getResources().getDrawable(obj.getImage()));
+            obj.setImageDrw(mContext.getDrawable(obj.getImage()));
             obj.setName(array_title_place[i]);
             obj.setBrief(array_brief_place[i]);
             items.add(obj);
@@ -149,5 +149,10 @@ public class BestSelfieFragment extends Fragment {
         initComponent();
 
         return mBinding.getRoot();
+    }
+
+    public void onDestroy() {
+        if (mRunnable != null) mHandler.removeCallbacks(mRunnable);
+        super.onDestroy();
     }
 }

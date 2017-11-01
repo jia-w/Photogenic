@@ -2,12 +2,11 @@ package bulgogi1216.gmail.photogenic.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class AdapterMostFavoriteSelfieSlider extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return mItems.size();
+         return mItems.size();
     }
 
     public MostFavoriteSelfie getItem(int _position) {
@@ -62,13 +61,13 @@ public class AdapterMostFavoriteSelfieSlider extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         final MostFavoriteSelfie o = mItems.get(position);
         LayoutInflater layoutInflater = (LayoutInflater) mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ItemSliderMostFavoriteSelfieBinding binding = ItemSliderMostFavoriteSelfieBinding.inflate(layoutInflater, container, true);
+        ItemSliderMostFavoriteSelfieBinding binding = ItemSliderMostFavoriteSelfieBinding.inflate(layoutInflater, container, false);
 //
 //        View v = inflater.inflate(R.layout.item_slider_image, container, false);
 //
 //        ImageView image = (ImageView) v.findViewById(R.id.image);
 //        MaterialRippleLayout lyt_parent = (MaterialRippleLayout) v.findViewById(R.id.lyt_parent);
-        Tools.displayImageOriginal(mActivity, binding.image, o.getImage());
+        Tools.displayImageOriginal(binding.getRoot().getContext(), binding.image, o.getImage());
         binding.lytParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View v) {
@@ -78,14 +77,13 @@ public class AdapterMostFavoriteSelfieSlider extends PagerAdapter {
             }
         });
 
-        ((ViewPager) container).addView(binding.getRoot());
+        container.addView(binding.getRoot());
 
         return binding.getRoot();
     }
 
     @Override
     public void destroyItem(ViewGroup container, int position, Object object) {
-        ((ViewPager) container).removeView((RelativeLayout) object);
-
+        (container).removeView((ConstraintLayout)object);
     }
 }
