@@ -12,8 +12,15 @@
         <item>@string/menu_tourist_information_in_main</item>
     </string-array>
 
+    <string-array name="spinner_titles_in_timeline">
+        <item>@string/all_post_in_timeline</item>
+        <item>@string/only_friends_in_timeline</item>
+        <item>@string/only_me_in_timeline</item>
+    </string-array>
+
     <string-array name="tab_titles_in_selfie">
         <item>@string/tab_best_selfie_in_selfie</item>
         <item>@string/tab_selfie_of_friend_in_selfie</item>
+        <item>@string/tab_timeline_in_selfie</item>
     </string-array>
 </resources>

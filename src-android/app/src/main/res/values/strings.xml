@@ -27,6 +27,7 @@
 
     <string name="tab_best_selfie_in_selfie">베스트 인생샷</string>
     <string name="tab_selfie_of_friend_in_selfie">친구의 인생샷</string>
+    <string name="tab_timeline_in_selfie">타임라인</string>
 
     <!-- Log In Fragment -->
     <string name="email">email</string>
@@ -34,6 +35,11 @@
     <string name="sign_in">로그인</string>
     <string name="sign_up">회원가입</string>
     <string name="remember_me">Remember me</string>
+
+    <!-- Spinner Title in Timeline Fragment -->
+    <string name="all_post_in_timeline">모두</string>
+    <string name="only_friends_in_timeline">친구만</string>
+    <string name="only_me_in_timeline">나만</string>
 
     <!-- Material Design Icons -->
     <string name="material_icon_account">&#xe800;</string>

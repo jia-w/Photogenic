@@ -19,6 +19,7 @@ import java.util.List;
 import bulgogi1216.gmail.photogenic.databinding.ActivitySelfieBinding;
 import bulgogi1216.gmail.photogenic.fragment_in_selfie.BestSelfieFragment;
 import bulgogi1216.gmail.photogenic.fragment_in_selfie.SelfieOfFriendFragment;
+import bulgogi1216.gmail.photogenic.fragment_in_selfie.TimelineFragment;
 import bulgogi1216.gmail.photogenic.model.SelfieCard;
 import bulgogi1216.gmail.photogenic.model.SelfieCardList;
 import bulgogi1216.gmail.photogenic.util.Tools;
@@ -76,7 +77,7 @@ public class SelfieActivity extends AppCompatActivity {
         mPagerAdapter.addFragment(BestSelfieFragment.newInstance(), tabTitles[0]);    // index 0
         mPagerAdapter.addFragment(SelfieOfFriendFragment.newInstance(), tabTitles[1]);   // index 1
         mPagerAdapter.addFragment(SelfieOfFriendFragment.newInstance(), "Books");    // index 2
-        mPagerAdapter.addFragment(SelfieOfFriendFragment.newInstance(), "Games");    // index 3
+        mPagerAdapter.addFragment(TimelineFragment.newInstance(), "Games");    // index 3
         mBinding.viewPager.setAdapter(mPagerAdapter);
     }
 

@@ -115,17 +115,6 @@ public class BestSelfieFragment extends Fragment {
     }
 
 /*    private void initRecyclerView() {
-        mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        mBinding.recyclerView.setHasFixedSize(true);
-
-        //set data and list adapter
-        mAdapterMostFavoriteSelfieCard = new AdapterMostFavoriteSelfieCard(mContext);
-        mBinding.recyclerView.setAdapter(mAdapterMostFavoriteSelfieCard);
-*//*
-        List<SelfieCard> items = new ArrayList<>();
-        items.addAll(DataGenerator.getPeopleData(this));
-        items.addAll(DataGenerator.getPeopleData(this));
-
         int sect_count = 0;
         int sect_idx = 0;
         List<String> months = DataGenerator.getStringsMonth(this);
